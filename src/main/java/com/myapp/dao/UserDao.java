@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface UserDao extends AbstractDao<User, Integer>{
     void save(User user);
-    List<User> getAllUsers();
+    List<User> findAllUsers();
 }

@@ -4,9 +4,12 @@ package com.myapp.service.impl;
 import com.myapp.dao.UserDao;
 import com.myapp.entity.User;
 import com.myapp.service.UserService;
+import org.hibernate.criterion.Criterion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service("userService")
 @Transactional(readOnly = true)
@@ -32,5 +35,10 @@ public class UserServiceImpl implements UserService{
         if (user != null) {
             userDao.delete(user);
         }
+    }
+
+    @Override
+    public List<User> findAllUsers(){
+        return userDao.findAllUsers();
     }
 }
